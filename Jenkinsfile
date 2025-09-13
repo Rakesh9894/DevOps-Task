@@ -12,6 +12,8 @@ pipeline {
             }
         }
 
+      
+        
         stage('Build') {
             steps {
                 echo "✅ Code pulled and build stage running"
