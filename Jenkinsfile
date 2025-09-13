@@ -6,8 +6,8 @@ pipeline {
     }
 
     environment {
-        AWS_CREDENTIALS = credentials('aws_cred')        // from Jenkins credentials
-        DOCKER_CREDS   = credentials('rakesh9894')       // DockerHub username/password
+        AWS_CREDENTIALS = credentials('aws_cred')       
+        DOCKER_CREDS   = credentials('rakesh9894')
     }
 
     stages {
