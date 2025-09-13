@@ -8,9 +8,7 @@ pipeline {
     environment {
         AWS_CREDENTIALS = credentials('aws_cred')       
         DOCKER_CREDS   = credentials('rakesh9894')
-    }
-
-    
+    } 
     stages {
         stage('Checkout') {
             steps {
