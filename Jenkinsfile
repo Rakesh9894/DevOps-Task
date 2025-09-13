@@ -10,6 +10,7 @@ pipeline {
         DOCKER_CREDS   = credentials('rakesh9894')
     }
 
+    
     stages {
         stage('Checkout') {
             steps {
