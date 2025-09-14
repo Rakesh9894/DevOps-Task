@@ -44,14 +44,40 @@ http://localhost:3000
 
 You will see the Swayatt logo displayed in your browser.
 
-## Project Structure
+## Repo contents
+- `app/` — application source and `Dockerfile`
+- `Jenkinsfile` — Jenkins pipeline (declarative)
+- `k8s/` — Kubernetes manifests for app
+- `monitoring/` — Prometheus & Grafana manifests
+- `terraform/` —  infra skeleton
 
-```
-├── app.js              # Main server file
-├── package.json        # Project dependencies and scripts
-├── logoswayatt.png     # Logo image file
-└── README.md          # This file
-```
+# Prereqs
+- GitHub repo
+- Jenkins (with GitHub integration)
+- DockerHub account
+- AWS account + EKS cluster or kubectl pointing to cluster
+- AWS CLI configured (with IAM permissions for EKS, ECR, )
+
+
+## Challenges Faced & Solutions
+
+1. Issue: EKS nodes showing `NotReady` state.  
+   Solution: Corrected IAM roles and node group configuration via Terraform to allow proper worker node registration.
+
+3. Issue: Jenkins pipeline failures due to missing credentials.  
+   Solution: Configured AWS, DockerHub, and GitHub credentials in Jenkins securely, ensuring successful builds and deployments.
+
+4. Issue: Initial misconfigurations in Kubernetes manifests.  
+   Solution: Debugged YAML files, validated manifests with `kubectl`, and redeployed.
+
+   ##  Possible Improvements
+- Adding Enviroments like staging and production in K*s
+- integrating with Testing tool like Sonarqube and trivy 
+- Use ArgoCD or Flux for GitOps-based continuous delivery.
+- Enable autoscaling for application pods and cluster nodes.
+- Harden security with IAM least-privilege roles and network policies.
+- Including LoadBalancer
+
 
 ## Technical Details
 
