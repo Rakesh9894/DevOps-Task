@@ -1,14 +1,6 @@
 pipeline {
     agent any
 
-    triggers {
-        githubPush()   // ensures webhook trigger works
-    }
-
-    environment {
-        AWS_CREDENTIALS = credentials('aws_cred')       
-        DOCKER_CREDS   = credentials('rakesh9894')
-    } 
     stages {
         stage('Checkout') {
             steps {
@@ -28,7 +20,7 @@ pipeline {
 
         stage('Push to DockerHub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'rakesh9894',
+                withCredentials([usernamePassword(credentialsId: 'dockerhub',
                                                   usernameVariable: 'DOCKER_USER',
                                                   passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
@@ -55,7 +47,7 @@ pipeline {
 
     post {
         always {
-            echo "Pipeline finished at: $(date)"
+            echo "Pipeline finished"
         }
         success {
             echo "✅ Deployment successful!"
