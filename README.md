@@ -71,7 +71,7 @@ You will see the Swayatt logo displayed in your browser.
    Solution: Debugged YAML files, validated manifests with `kubectl`, and redeployed.
 
    ##  Possible Improvements
-- Adding Enviroments like staging and production in K*s
+- Adding Enviroments like staging and production in K8s
 - integrating with Testing tool like Sonarqube and trivy 
 - Use ArgoCD or Flux for GitOps-based continuous delivery.
 - Enable autoscaling for application pods and cluster nodes.
