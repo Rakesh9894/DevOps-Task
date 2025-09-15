@@ -50,10 +50,10 @@ pipeline {
             echo "Pipeline finished"
         }
         success {
-            echo "✅ Deployment successful!"
+            echo " Deployment successful!"
         }
         failure {
-            echo "❌ Pipeline failed. Check logs."
+            echo " Pipeline failed. Check logs."
         }
     }
 }
